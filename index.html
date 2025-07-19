@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+  <style>
+    body {
+      background-color: #fbbf24; /* amber-400 */
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    .container
+    {
+      width: 30%;
+      height: 80vh;
+      background-color: white;
+      margin: 5% auto;
+      border-radius: 10px;
+    }
+    .top-box
+    {
+      width: 96%;
+      padding: 2%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      height: 50%;
+      background-color: #dca929;
+    }
+    .input-box
+    {
+      width: 96%;
+      height: 30%;
+      margin-top: 2%;
+      font-size: 20px;
+      padding: 2%;
+    }
+    .submit-button
+    {
+      width: 30%;
+      height: 5vh;
+      font-size: 18px;
+      background-color: green;
+      border: none;
+      border-radius: 5px;
+      display: block;
+      color: white;
+      margin: auto;
+    }
+    .li
+    {
+      width: 100%;
+      height: 6vh;
+      font-size: 18px;
+    }
+    .button
+    {
+      width: 20%;
+      height: 5vh;
+      font-size: 18px;
+      background-color: red;
+      border-radius: 5px;
+      border: none;
+      color: white;
+      float: right;
+      margin-left: 1%;
+    }
+    @media(max-width:760px)
+    {
+       .container
+      {
+        width: 90%;
+        height: 75vh;
+        background-color: white;
+        margin: 5% auto;
+        border-radius: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-box" id="docume">
+      <ol id="ol">
+      </ol>
+    </div>
+
+    <textarea id="text" placeholder="Enter Text..." class="input-box"></textarea>
+    <button class="submit-button" onclick="tud()">Submit</button>
+  </div>
+
+  <script>
+    var c=0;
+    var count=1;
+    parseInt(count);
+    var span;
+    let madhab
+    let k
+    let id=100;
+    let sum=0;
+    function tud()
+    {
+      let a=document.getElementById('text').value;
+      if(a=="")
+      {
+        alert("Fill The Text Box");
+      }
+      else{
+        if(c==0){
+        let mas=document.createElement('li');
+        mas.className="li"
+        mas.id=id;
+        document.getElementById('ol').appendChild(mas);
+        span=document.createElement('span');
+        mas.appendChild(span);
+        span.innerHTML=a;
+        span.id=count;
+        document.getElementById('text').value=""
+        let delet=document.createElement('button');
+        mas.appendChild(delet);
+        delet.className="button"
+        delet.innerHTML="Delete"
+        delet.addEventListener("click",function(){
+          let del=document.getElementById(delet);
+          del.remove();
+          document.getElementById('text').value="";
+        })
+        let edit=document.createElement('button');
+        mas.appendChild(edit);
+        edit.className="button"
+        edit.innerHTML="Edit"
+        edit.addEventListener("click",function()
+          {
+            k=edit;
+            madhab=document.getElementById(k).textContent;
+            document.getElementById('text').value=madhab;
+            c=1;
+          })
+          edit=count;
+          delet=id;
+        count++;
+        id++;
+        }
+        else if(c==1)
+        {
+          let spa=document.getElementById('text').value;
+          document.getElementById(k).innerHTML=spa;
+          document.getElementById('text').value="";
+          c=0;
+        }
+    }
+      
+    }
+  </script>
+</body>
+</html>
